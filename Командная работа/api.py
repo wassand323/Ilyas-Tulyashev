@@ -1,9 +1,4 @@
-# ============================================================
 # Этап 4. FastAPI backend
-# Запуск:  uvicorn api:app --reload --port 8000
-# Требует файл model_pipeline.joblib (создаётся в этапе 3) в той же папке.
-# ============================================================
-
 import numpy as np
 import pandas as pd
 import joblib
@@ -14,8 +9,6 @@ MODEL_PATH = "model_pipeline.joblib"
 DATA_PATH = "real_estate_data.csv"
 
 app = FastAPI(title="Real Estate Price API", version="1.0")
-
-# ---------- Загрузка модели один раз при старте приложения ----------
 artifact = joblib.load(MODEL_PATH)
 pipeline = artifact["pipeline"]
 feature_columns = artifact["feature_columns"]
